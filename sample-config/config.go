@@ -10,8 +10,7 @@ import (
 )
 
 var (
-	DefaultConfig = "./config.yaml"
-	Debug         bool
+	Debug bool
 )
 
 func ReadConfig() {
