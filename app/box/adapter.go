@@ -3,6 +3,8 @@ package box
 import (
 	"context"
 	"mime/multipart"
+
+	"github.com/wilzyang/go-api/domain/box"
 )
 
 type Adapter struct {

@@ -14,4 +14,21 @@ type Config struct {
 	Gcp struct {
 		ProjecId string `yaml:"project-id"`
 	}
+	BoxApi struct {
+		Files  string `yaml:"files"`
+		Upload string `yaml:"upload"`
+	}
+}
+
+type BoxCredential struct {
+	BoxAppSettings struct {
+		ClientID     string `yaml:"clientID"`
+		ClientSecret string `yaml:"clientSecret"`
+	}
+	AppAuth struct {
+		PublicKeyID string `yaml:"publicKeyID"`
+		Passphrase  string `yaml:"passphrase"`
+	}
+	EnterpriseID string `yaml:"enterpriseID"`
+	UserId       string `yaml:"userId"`
 }

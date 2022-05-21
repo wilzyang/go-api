@@ -4,6 +4,7 @@ import (
 	"context"
 
 	"github.com/gin-gonic/gin"
+	"github.com/wilzyang/go-api/app"
 	"github.com/wilzyang/go-api/domain/box"
 )
 
