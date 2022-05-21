@@ -5,6 +5,7 @@ This is a simple CRUD service with Box.com API. We can upload file which also in
 Next Goal
 - Test All Endpoints
 - Add redis/sessions to store jwt token for 30 minutes
+- Add middleware for verify data request
 - Adding Login Authentication
 - Build unit test
 
