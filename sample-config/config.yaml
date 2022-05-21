@@ -1,0 +1,17 @@
+server:
+  address: ":8081"
+database:
+  driver: "mysql"
+  dsn: "gorm:gorm@tcp(127.0.0.1:3306)/gorm?charset=utf8&parseTime=True&loc=Local"
+#database:
+# driver: "postgres"
+# dsn: "host=localhost user=gorm password=gorm dbname=gorm port=9920 sslmode=disable TimeZone=Asia/Shanghai"
+redis:
+  hostname: "localhost:6379"
+  password: ""
+  db: 0
+api:
+  get: ""
+  post: ""
+gcp:
+  project-id: "project-test"
