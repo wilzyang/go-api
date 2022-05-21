@@ -6,7 +6,7 @@ import (
 
 	"github.com/pkg/errors"
 	"github.com/spf13/viper"
-	"github.com/wilzyang/go-api/config/config"
+	"github.com/wilzyang/go-api/config"
 )
 
 var (
