@@ -14,6 +14,7 @@ Web Framework : Gin (https://github.com/gin-gonic/gin)
 ORM           : GORM (https://gorm.io/docs)
 Redis         : TBD
 Config        : Viper (https://github.com/spf13/viper)
+File Storage  : Box.com (https://developer.box.com/reference)
 
 
 ## Contributing
