@@ -4,7 +4,7 @@ This is a simple CRUD service with Google Storage. At first the project is using
 
 The purpose of this API is to upload file to bucket which also insert the data to database, there will be more additional functionality like delete files and so on. Pattern used is Hexagonal Pattern with a bootstrap to wrap things up. Still not tested yet, and unit test still need to be added.
 
-### Requrement
+### Requirement
 This Project Requirement is
 - Go Version 1.6 above (its build at 1.8 but 1.6 is quite good enough)
 - Mysql or Postgres database (right now I only add postgres connection, mysql will be added later)
@@ -12,12 +12,18 @@ This Project Requirement is
 
 
 ### Next Goal
-- Refaktor to Google Storage from Box.com
-- Test All Endpoints
+- Refaktor to Google Storage from Box.com [Done]
+- Test All Endpoints and debugging
+- Create Makefile to easily install service to docker and set ENV
 - Add redis/sessions to store jwt token for 30 minutes
 - Add middleware for verify data request
 - Adding Login Authentication
 - Build unit test
+
+### Change Log
+Date 22-05-2022 
+- Refaktor box.com API to Google Storage
+- Box.com JWT auth and api still there, but other configuration at main already changed to Google Storage
 
 ### Dependency
 Dependency for this project,
