@@ -51,6 +51,7 @@ func (u UseCase) DoUpload(ctx context.Context, form multipart.File, filename str
 	}
 
 	result.IsError = false
+	result.Data = fmt.Sprintf("Success upload file %s", filename)
 
 	return result, nil
 }

@@ -47,7 +47,7 @@ func (r Routes) DoUpload(c *gin.Context) {
 
 	defer f.Close()
 
-	_, err = adapter.doUpload(context.Background(), f, h.Filename)
+	data, err := adapter.doUpload(context.Background(), f, h.Filename)
 
 	if err != nil {
 		app.RespondError(c, app.Error{
@@ -59,6 +59,7 @@ func (r Routes) DoUpload(c *gin.Context) {
 		IsError: false,
 		Code:    http.StatusOK,
 		Message: "Upload Success",
+		Data:    data,
 	})
 
 }
