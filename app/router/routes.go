@@ -21,7 +21,7 @@ func Routes(appModule app.AppModule) (*gin.Engine, error) {
 
 	fileRoutes := file.NewFileRoute(appModule.FileModule.FileIP)
 	ApiGroup.POST(file.MainPath, fileRoutes.DoUpload)
-	// ApiGroup.DELETE(file.MainPath, boxRoutes.DoDelete)
+	// ApiGroup.DELETE(file.MainPath, fileRoutes.DoDelete)
 
 	return g, nil
 }

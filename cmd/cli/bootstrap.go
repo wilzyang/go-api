@@ -16,13 +16,8 @@ type BootstrapConfig struct {
 	Debug  bool
 	Client *storage.Client
 	Bucket string
-	BoxAPI Url
+	BoxAPI box.ApiUrl
 	BoxJWT box.BoxConfig
-}
-
-type Url struct {
-	GenURL    string
-	UploadURL string
 }
 
 func Bootstrap(config BootstrapConfig) (app.AppModule, error) {
