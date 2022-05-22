@@ -1,6 +1,6 @@
 # Go CRUD API with Google Storage
 
-This is a simple CRUD service with Google Storage. At first the project is using box.com, but after some consideration of box.com API usage is only for premium users only (which is not free), I change the storage to Google Cloud Storage which is can be access by free account. You could get Google Cloud Platform (GCP) account free for 6 months and get some credits to for testing.
+This is a simple CRUD service with Google Storage. At first the project is using box.com, but after some consideration of box.com API usage is only for premium users only (which is not free), so I change the storage to Google Cloud Storage which is can be access by free account. You could get Google Cloud Platform (GCP) account free for 6 months and get some credits to for testing.
 
 The purpose of this API is to upload file to bucket which also insert the data to database, there will be more additional functionality like delete files and so on. Pattern used is Hexagonal Pattern with a bootstrap to wrap things up. Still not tested yet, and unit test still need to be added.
 
