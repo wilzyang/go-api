@@ -18,7 +18,7 @@ func NewAdapter(fileIP file.InputPort, adt ...interface{}) Adapter {
 }
 
 func (a Adapter) doUpload(ctx context.Context, form multipart.File, filename string) (result file.Result, err error) {
-	return a.fileIP.Upload(ctx, form, filename)
+	return a.fileIP.DoUpload(ctx, form, filename)
 }
 
 //used later for delete

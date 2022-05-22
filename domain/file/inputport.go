@@ -6,5 +6,5 @@ import (
 )
 
 type InputPort interface {
-	Upload(ctx context.Context, form multipart.File, filename string) (result Result, err error)
+	DoUpload(ctx context.Context, form multipart.File, filename string) (result Result, err error)
 }

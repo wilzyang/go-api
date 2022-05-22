@@ -20,7 +20,7 @@ func NewFileUseCase(fileRepo fileRepository, fileApi fileApi) UseCase {
 	}
 }
 
-func (u UseCase) Upload(ctx context.Context, form multipart.File, filename string) (result Result, err error) {
+func (u UseCase) DoUpload(ctx context.Context, form multipart.File, filename string) (result Result, err error) {
 
 	err = u.fileApi.UploadFile(context.Background(), form, filename)
 	if err != nil {

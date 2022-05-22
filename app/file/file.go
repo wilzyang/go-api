@@ -2,6 +2,7 @@ package file
 
 import (
 	"context"
+	"net/http"
 
 	"github.com/gin-gonic/gin"
 	"github.com/wilzyang/go-api/app"
@@ -55,6 +56,8 @@ func (r Routes) DoUpload(c *gin.Context) {
 	}
 
 	app.RespondSuccess(c, app.Response{
+		IsError: false,
+		Code:    http.StatusOK,
 		Message: "Upload Success",
 	})
 
