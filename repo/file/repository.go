@@ -3,6 +3,7 @@ package file
 import (
 	"context"
 
+	"github.com/wilzyang/go-api/domain/file"
 	"gorm.io/gorm"
 )
 
@@ -20,7 +21,7 @@ var (
 	ctx = context.Background()
 )
 
-func (r *FileRepository) DoInsertData(title string, size int, link string, file_type string) (err error) {
-	err = InsertData(ctx, title, size, link, file_type, r.DB)
+func (r *FileRepository) DoInsertData(title string, data file.FileList) (err error) {
+	err = InsertData(ctx, data, r.DB)
 	return
 }

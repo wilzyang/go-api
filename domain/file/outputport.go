@@ -8,7 +8,7 @@ import (
 )
 
 type fileRepository interface {
-	DoInsertData(title string, size int, link string, file_type string) (err error)
+	DoInsertData(title string, data FileList) (err error)
 }
 
 type fileApi interface {

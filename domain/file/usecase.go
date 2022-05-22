@@ -5,6 +5,7 @@ import (
 	"errors"
 	"fmt"
 	"mime/multipart"
+	"time"
 )
 
 type UseCase struct {
@@ -33,7 +34,16 @@ func (u UseCase) Upload(ctx context.Context, form multipart.File, filename strin
 		return result, errors.New(e)
 	}
 
-	err = u.fileRepo.DoInsertData(filename, int(att.Size), att.MediaLink, att.ContentType)
+	data := FileList{
+		Filename:  filename,
+		Size:      int64(att.Size),
+		MediaLink: att.MediaLink,
+		FileType:  att.ContentType,
+		CreatedAt: time.Now(),
+		UpdatedAt: time.Now(),
+	}
+
+	err = u.fileRepo.DoInsertData(filename, data)
 
 	if err != nil {
 		e := fmt.Sprintf("[Domain] Insert Data : %v", err)
