@@ -43,7 +43,7 @@ Dependency for this project,
 - Viper Config: https://github.com/spf13/viper
 
 ## Contributing
-Please note this code still not fully tested yet. If want to ask something or request for pull request please open for issue.
+Please note this code is not fully tested yet. If you want to ask or discuss anything please open an issue.
 
 ## License
 
