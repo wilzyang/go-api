@@ -24,6 +24,7 @@ func RespondError(g *gin.Context, err error) error {
 	if webErr, ok := errors.Cause(err).(Error); ok {
 		if webErr.Code == Internal {
 			g.JSON(http.StatusInternalServerError, Response{
+				IsError: true,
 				Message: ErrInternal.Error(),
 				Code:    http.StatusInternalServerError,
 			})
@@ -31,6 +32,7 @@ func RespondError(g *gin.Context, err error) error {
 		}
 		if webErr.Code == Notfound {
 			g.JSON(http.StatusNotFound, Response{
+				IsError: true,
 				Message: webErr.Message,
 				Code:    http.StatusNotFound,
 			})
@@ -38,6 +40,7 @@ func RespondError(g *gin.Context, err error) error {
 		}
 		if webErr.Code == InvalidData {
 			g.JSON(http.StatusNotFound, Response{
+				IsError: true,
 				Message: webErr.Message,
 				Code:    http.StatusBadRequest,
 			})
@@ -45,6 +48,7 @@ func RespondError(g *gin.Context, err error) error {
 		}
 		//default error message if catch
 		g.JSON(http.StatusBadRequest, Response{
+			IsError: true,
 			Message: webErr.Message,
 			Code:    http.StatusBadRequest,
 		})
@@ -52,6 +56,7 @@ func RespondError(g *gin.Context, err error) error {
 	}
 	//default other errors
 	g.JSON(http.StatusInternalServerError, Response{
+		IsError: true,
 		Message: ErrInternal.Error(),
 		Code:    http.StatusInternalServerError,
 	})

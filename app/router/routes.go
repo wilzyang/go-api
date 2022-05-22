@@ -4,7 +4,7 @@ import (
 	"github.com/gin-contrib/gzip"
 	"github.com/gin-gonic/gin"
 	"github.com/wilzyang/go-api/app"
-	"github.com/wilzyang/go-api/app/box"
+	"github.com/wilzyang/go-api/app/file"
 )
 
 func Routes(appModule app.AppModule) (*gin.Engine, error) {
@@ -19,9 +19,9 @@ func Routes(appModule app.AppModule) (*gin.Engine, error) {
 
 	ApiGroup := g.Group("/api")
 
-	boxRoutes := box.NewBoxRoute(appModule.BoxModule.BoxIP)
-	ApiGroup.POST(box.MainPath, boxRoutes.DoUpload)
-	ApiGroup.DELETE(box.MainPath, boxRoutes.DoDelete)
+	fileRoutes := file.NewFileRoute(appModule.FileModule.FileIP)
+	ApiGroup.POST(file.MainPath, fileRoutes.DoUpload)
+	// ApiGroup.DELETE(file.MainPath, boxRoutes.DoDelete)
 
 	return g, nil
 }

@@ -1,19 +1,19 @@
 package app
 
-import "github.com/wilzyang/go-api/domain/box"
+import "github.com/wilzyang/go-api/domain/file"
 
 type AppModule struct {
-	BoxModule BoxModule
+	FileModule FileModule
 }
 
 func NewAppModule(
-	boxModule BoxModule,
+	fileModule FileModule,
 ) AppModule {
 	return AppModule{
-		BoxModule: boxModule,
+		FileModule: fileModule,
 	}
 }
 
-type BoxModule struct {
-	BoxIP box.InputPort
+type FileModule struct {
+	FileIP file.InputPort
 }

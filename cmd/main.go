@@ -7,6 +7,7 @@ import (
 	"os/signal"
 	"time"
 
+	"cloud.google.com/go/storage"
 	"github.com/apex/log"
 	"github.com/pkg/errors"
 	"github.com/spf13/viper"
@@ -14,12 +15,10 @@ import (
 	"github.com/wilzyang/go-api/cmd/cli"
 	"github.com/wilzyang/go-api/config"
 	"github.com/wilzyang/go-api/repo"
-	service "github.com/wilzyang/go-api/services/box"
 )
 
 var (
 	conf Config
-	cred BoxCredential
 )
 
 func init() {
@@ -40,12 +39,6 @@ func run() error {
 		errors.Wrap(err, "Fail to unmarshal connections")
 	}
 
-	//get cred config
-	err = viper.Unmarshal(&cred)
-	if err != nil {
-		errors.Wrap(err, "Fail to unmarshal connections")
-	}
-
 	//database connection
 	conn, err := repo.ConnectPsql(conf.Database.Dsn)
 
@@ -53,17 +46,21 @@ func run() error {
 		return errors.Wrap(err, "Connect database")
 	}
 
+	//GCP client connection
+	// Creates a client.
+	client, err := storage.NewClient(context.Background())
+	if err != nil {
+		return errors.Wrap(err, "Failed to create client")
+	}
+	defer client.Close()
+
 	bc := cli.BootstrapConfig{
-		DB: conn,
+		DB:        conn,
+		GcpClient: client,
+		Bucket:    conf.Gcp.Bucket,
 		BoxAPI: cli.Url{
 			GenURL:    conf.BoxApi.Files,
 			UploadURL: conf.BoxApi.Upload,
-		},
-		BoxJWT: service.BoxConfig{
-			PublicKeyID:  cred.AppAuth.PublicKeyID,
-			ClientID:     cred.BoxAppSettings.ClientID,
-			Sub:          cred.EnterpriseID,
-			ClientSecret: cred.BoxAppSettings.ClientSecret,
 		},
 	}
 

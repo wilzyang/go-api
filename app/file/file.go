@@ -1,11 +1,11 @@
-package box
+package file
 
 import (
 	"context"
 
 	"github.com/gin-gonic/gin"
 	"github.com/wilzyang/go-api/app"
-	"github.com/wilzyang/go-api/domain/box"
+	"github.com/wilzyang/go-api/domain/file"
 )
 
 const (
@@ -13,7 +13,7 @@ const (
 )
 
 type Routes struct {
-	boxIP box.InputPort
+	fileIP file.InputPort
 }
 
 type Response struct {
@@ -23,15 +23,15 @@ type Response struct {
 	Data    interface{} `json:"data"`
 }
 
-func NewBoxRoute(boxIP box.InputPort) Routes {
+func NewFileRoute(fileIP file.InputPort) Routes {
 	return Routes{
-		boxIP: boxIP,
+		fileIP: fileIP,
 	}
 }
 
 func (r Routes) DoUpload(c *gin.Context) {
 
-	adapter := NewAdapter(r.boxIP)
+	adapter := NewAdapter(r.fileIP)
 
 	err := c.Request.ParseMultipartForm(32 << 20)
 
@@ -60,22 +60,23 @@ func (r Routes) DoUpload(c *gin.Context) {
 
 }
 
-func (r Routes) DoDelete(c *gin.Context) {
+//use later for delete
+// func (r Routes) DoDelete(c *gin.Context) {
 
-	adapter := NewAdapter(r.boxIP)
+// 	adapter := NewAdapter(r.fileIP)
 
-	filekey := c.Query("fileKey")
+// 	filekey := c.Query("fileid")
 
-	_, err := adapter.doDelete(context.Background(), filekey)
+// 	_, err := adapter.doDelete(context.Background(), filekey)
 
-	if err != nil {
-		app.RespondError(c, app.Error{
-			Code: app.Internal,
-		})
-	}
+// 	if err != nil {
+// 		app.RespondError(c, app.Error{
+// 			Code: app.Internal,
+// 		})
+// 	}
 
-	app.RespondSuccess(c, app.Response{
-		Message: "Delete Success",
-	})
+// 	app.RespondSuccess(c, app.Response{
+// 		Message: "Delete Success",
+// 	})
 
-}
+// }

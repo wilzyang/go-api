@@ -1,4 +1,4 @@
-package box
+package file
 
 import (
 	"context"
@@ -43,29 +43,5 @@ func InsertData(ctx context.Context, title string, size int, link string, file_i
 		e := fmt.Sprintf("Database table [research_report] Insert : %v", err)
 		return errors.New(e)
 	}
-	return nil
-}
-
-func CheckIdByFilekey(ctx context.Context, filekey string, db *gorm.DB) (Id string, err error) {
-
-	err = db.Table("research_report").Select("box_file_id").Where("file_key = ?", filekey).First(&Id).Error
-
-	if err != nil {
-		e := fmt.Sprintf("Database table [research_report] query : %v", err)
-		return e, errors.New(e)
-	}
-
-	return
-}
-
-func DeleteByFilekey(ctx context.Context, filekey string, db *gorm.DB) error {
-
-	err := db.Table("research_report").Where("file_key = ?", filekey).Delete(&ResearchReport{})
-
-	if err != nil {
-		e := fmt.Sprintf("Database table [research_report] Delete : %v", err)
-		return errors.New(e)
-	}
-
 	return nil
 }
