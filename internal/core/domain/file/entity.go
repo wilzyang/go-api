@@ -2,8 +2,6 @@ package file
 
 import (
 	"time"
-
-	"gorm.io/gorm"
 )
 
 type Result struct {
@@ -13,7 +11,6 @@ type Result struct {
 
 //data inserted to database
 type FileList struct {
-	gorm.Model
 	Filename     string    `gorm:"filename"`
 	Size         int64     `gorm:"size"`
 	MediaLink    string    `gorm:"media_link"`
