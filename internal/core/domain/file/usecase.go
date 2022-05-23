@@ -6,6 +6,8 @@ import (
 	"fmt"
 	"mime/multipart"
 	"time"
+
+	"github.com/wilzyang/go-api/pkg"
 )
 
 type UseCase struct {
@@ -34,7 +36,7 @@ func (u UseCase) DoUpload(ctx context.Context, form multipart.File, filename str
 		return result, errors.New(e)
 	}
 
-	url := fmt.Sprintf("https://storage.cloud.google.com/%s/%s", att.Bucket, filename)
+	url := fmt.Sprintf("https://storage.cloud.google.com/%s/%s", att.Bucket, pkg.GenerateUrlEncode(filename))
 
 	data := FileList{
 		Filename:     filename,
