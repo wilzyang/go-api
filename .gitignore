@@ -3,3 +3,10 @@ config/
 
 #ignoring binary build
 goapi
+
+#ignoring other files that not needed
+.DS_Store
+.vscode
+
+#igonring docker
+Dockerfile

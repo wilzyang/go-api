@@ -4,7 +4,6 @@ import (
 	"cloud.google.com/go/storage"
 	"github.com/wilzyang/go-api/app"
 	"github.com/wilzyang/go-api/domain/file"
-	box "github.com/wilzyang/go-api/services/box"
 	gcp "github.com/wilzyang/go-api/services/gcp"
 	"gorm.io/gorm"
 
@@ -16,8 +15,13 @@ type BootstrapConfig struct {
 	Debug  bool
 	Client *storage.Client
 	Bucket string
-	BoxAPI box.ApiUrl
-	BoxJWT box.BoxConfig
+	BoxAPI BoxApi
+	BoxJWT string
+}
+
+type BoxApi struct {
+	Files  string
+	Upload string
 }
 
 func Bootstrap(config BootstrapConfig) (app.AppModule, error) {

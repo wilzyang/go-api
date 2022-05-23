@@ -55,12 +55,12 @@ func run() error {
 	defer client.Close()
 
 	bc := cli.BootstrapConfig{
-		DB:        conn,
-		GcpClient: client,
-		Bucket:    conf.Gcp.Bucket,
-		BoxAPI: cli.Url{
-			GenURL:    conf.BoxApi.Files,
-			UploadURL: conf.BoxApi.Upload,
+		DB:     conn,
+		Client: client,
+		Bucket: conf.Gcp.Bucket,
+		BoxAPI: cli.BoxApi{
+			Files:  conf.BoxApi.Files,
+			Upload: conf.BoxApi.Upload,
 		},
 	}
 
