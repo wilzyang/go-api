@@ -53,15 +53,14 @@ func (r Routes) DoUpload(c *gin.Context) {
 		app.RespondError(c, app.Error{
 			Code: app.Internal,
 		})
+	} else {
+		app.RespondSuccess(c, app.Response{
+			IsError: false,
+			Code:    http.StatusOK,
+			Message: "Upload Success",
+			Data:    data,
+		})
 	}
-
-	app.RespondSuccess(c, app.Response{
-		IsError: false,
-		Code:    http.StatusOK,
-		Message: "Upload Success",
-		Data:    data,
-	})
-
 }
 
 //use later for delete
