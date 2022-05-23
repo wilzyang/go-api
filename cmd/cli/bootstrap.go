@@ -3,11 +3,11 @@ package cli
 import (
 	"cloud.google.com/go/storage"
 	"github.com/wilzyang/go-api/app"
-	"github.com/wilzyang/go-api/domain/file"
-	gcp "github.com/wilzyang/go-api/services/gcp"
+	"github.com/wilzyang/go-api/internal/core/domain/file"
+	"github.com/wilzyang/go-api/internal/core/services/gcp"
 	"gorm.io/gorm"
 
-	repo "github.com/wilzyang/go-api/repo/file"
+	repo "github.com/wilzyang/go-api/internal/repository/file"
 )
 
 type BootstrapConfig struct {
@@ -34,6 +34,7 @@ func Bootstrap(config BootstrapConfig) (app.AppModule, error) {
 		Client: config.Client,
 		Bucket: config.Bucket,
 	}
+
 	gcp := gcp.NewGcpAPi(client)
 
 	fileIP := file.NewFileUseCase(fileRepo, gcp)

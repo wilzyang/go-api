@@ -1,6 +1,6 @@
 package app
 
-import "github.com/wilzyang/go-api/domain/file"
+import "github.com/wilzyang/go-api/internal/core/domain/file"
 
 type AppModule struct {
 	FileModule FileModule

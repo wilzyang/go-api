@@ -3,7 +3,7 @@ package file
 import (
 	"context"
 
-	"github.com/wilzyang/go-api/domain/file"
+	"github.com/wilzyang/go-api/internal/core/domain/file"
 	"gorm.io/gorm"
 )
 

@@ -1,4 +1,4 @@
-package file
+package handler
 
 import (
 	"context"
@@ -6,7 +6,7 @@ import (
 
 	"github.com/gin-gonic/gin"
 	"github.com/wilzyang/go-api/app"
-	"github.com/wilzyang/go-api/domain/file"
+	"github.com/wilzyang/go-api/internal/core/domain/file"
 )
 
 const (

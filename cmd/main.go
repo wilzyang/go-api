@@ -14,7 +14,7 @@ import (
 	"github.com/wilzyang/go-api/app/router"
 	"github.com/wilzyang/go-api/cmd/cli"
 	"github.com/wilzyang/go-api/config"
-	"github.com/wilzyang/go-api/repo"
+	repo "github.com/wilzyang/go-api/internal/repository"
 )
 
 var (

@@ -1,10 +1,10 @@
-package file
+package handler
 
 import (
 	"context"
 	"mime/multipart"
 
-	"github.com/wilzyang/go-api/domain/file"
+	"github.com/wilzyang/go-api/internal/core/domain/file"
 )
 
 type Adapter struct {
