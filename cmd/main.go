@@ -78,12 +78,12 @@ func run() error {
 
 	//Server
 	srv := &http.Server{
-		Addr:    conf.Address,
+		Addr:    conf.Server.Address,
 		Handler: c,
 	}
 
 	go func() {
-		log.Warnf("[Server] Starting the apps on port %s \n", conf.Address)
+		log.Warnf("[Server] Starting the apps on port %s \n", conf.Server.Address)
 		if err := srv.ListenAndServe(); err != nil {
 			log.Fatalf("[Server] Shutting the apps... [%s]", err)
 		}
