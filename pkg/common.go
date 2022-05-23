@@ -2,9 +2,7 @@ package pkg
 
 import (
 	"crypto/rand"
-	"fmt"
 	"net/url"
-	"strings"
 )
 
 // GenerateRandomBytes returns securely generated random bytes.
@@ -23,12 +21,8 @@ func GenerateRandomBytes(n int) ([]byte, error) {
 }
 
 func GenerateUrlEncode(s string) string {
-	fk := strings.Split(s, ".")
-	filename := fk[0]
-
-	escape := url.QueryEscape(filename)
-
-	res := fmt.Sprintf("%s.%s", escape, fk[1])
+	t := &url.URL{Path: s}
+	res := t.String()
 
 	return res
 }
