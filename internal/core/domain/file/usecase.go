@@ -34,13 +34,16 @@ func (u UseCase) DoUpload(ctx context.Context, form multipart.File, filename str
 		return result, errors.New(e)
 	}
 
+	url := fmt.Sprintf("https://storage.cloud.google.com/%s/%s", att.Bucket, filename)
+
 	data := FileList{
-		Filename:  filename,
-		Size:      int64(att.Size),
-		MediaLink: att.MediaLink,
-		FileType:  att.ContentType,
-		CreatedAt: time.Now(),
-		UpdatedAt: time.Now(),
+		Filename:     filename,
+		Size:         int64(att.Size),
+		MediaLink:    url,
+		DownloadLink: att.MediaLink,
+		FileType:     att.ContentType,
+		CreatedAt:    time.Now(),
+		UpdatedAt:    time.Now(),
 	}
 
 	err = u.fileRepo.DoInsertData(filename, data)
