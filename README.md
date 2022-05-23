@@ -21,12 +21,13 @@ This Project Requirement is
 - Build unit test
 
 ### Change Log
-[22-05-2022]
+#### [22-05-2022]
 - Refaktor box.com API to Google Storage
 - Box.com JWT auth and api still there, but other configuration at main already changed to Google Storage
 - Modify database upload query and functions, this way we can manipulate data inside domain and doesn't need to touch repository file if there any changes on table column
 - Pass success upload message to respond, so we can easily debug if there any error
-[23-05-2022]
+
+#### [23-05-2022]
 - Refaktor pattern and change some folder naming
 
 ### Dependency
