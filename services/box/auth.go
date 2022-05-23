@@ -11,7 +11,7 @@ import (
 
 	"github.com/SermoDigital/jose"
 	"github.com/golang-jwt/jwt/v4"
-	"github.com/wilzyang/go-api/helper"
+	"github.com/wilzyang/go-api/pkg"
 )
 
 // JWTAUTHURL - URL for oAUTH for Box
@@ -54,7 +54,7 @@ func (bc *BoxConfig) CreateJWTAssertion() (JWToken string, err error) {
 	var msg string
 
 	// Generate random bytes
-	random, err := helper.GenerateRandomBytes(32)
+	random, err := pkg.GenerateRandomBytes(32)
 	if err != nil {
 		msg = "Fail to generate random bytes"
 		return msg, err
