@@ -29,6 +29,8 @@ This Project Requirement is
 
 #### [23-05-2022]
 - Refaktor pattern and change some folder naming
+- Debugging and fix errors
+- Handling file name to url encode before insert to database
 
 ### Dependency
 Dependency for this project,
