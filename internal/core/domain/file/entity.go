@@ -1,6 +1,10 @@
 package file
 
-import "time"
+import (
+	"time"
+
+	"gorm.io/gorm"
+)
 
 type Result struct {
 	IsError bool   `json:"is_error"`
@@ -9,6 +13,7 @@ type Result struct {
 
 //data inserted to database
 type FileList struct {
+	gorm.Model
 	Filename  string    `gorm:"filename"`
 	Size      int64     `gorm:"size"`
 	MediaLink string    `gorm:"media_link"`
