@@ -50,9 +50,7 @@ func (r Routes) DoUpload(c *gin.Context) {
 	data, err := adapter.doUpload(context.Background(), f, h.Filename)
 
 	if err != nil {
-		app.RespondError(c, app.Error{
-			Code: app.Internal,
-		})
+		app.RespondError(c, err)
 	} else {
 		app.RespondSuccess(c, app.Response{
 			IsError: false,

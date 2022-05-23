@@ -31,6 +31,7 @@ This Project Requirement is
 - Refaktor pattern and change some folder naming
 - Debugging and fix errors
 - Handling file name to url encode before insert to database
+- Pass error message to response
 
 ### Dependency
 Dependency for this project,

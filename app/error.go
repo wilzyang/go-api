@@ -21,8 +21,9 @@ var (
 )
 
 type Error struct {
-	Code    int    `json:"code"`
-	Message string `json:"message"`
+	Code    int         `json:"code"`
+	Message string      `json:"message"`
+	Err     interface{} `json:"err"`
 }
 
 func (e Error) Error() string {

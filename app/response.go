@@ -27,6 +27,7 @@ func RespondError(g *gin.Context, err error) error {
 				IsError: true,
 				Message: ErrInternal.Error(),
 				Code:    http.StatusInternalServerError,
+				Data:    webErr.Err,
 			})
 			return err
 		}
@@ -35,6 +36,7 @@ func RespondError(g *gin.Context, err error) error {
 				IsError: true,
 				Message: webErr.Message,
 				Code:    http.StatusNotFound,
+				Data:    webErr.Err,
 			})
 			return err
 		}
@@ -43,6 +45,7 @@ func RespondError(g *gin.Context, err error) error {
 				IsError: true,
 				Message: webErr.Message,
 				Code:    http.StatusBadRequest,
+				Data:    webErr.Err,
 			})
 			return err
 		}
@@ -51,6 +54,7 @@ func RespondError(g *gin.Context, err error) error {
 			IsError: true,
 			Message: webErr.Message,
 			Code:    http.StatusBadRequest,
+			Data:    webErr.Err,
 		})
 		return err
 	}
@@ -59,6 +63,7 @@ func RespondError(g *gin.Context, err error) error {
 		IsError: true,
 		Message: ErrInternal.Error(),
 		Code:    http.StatusInternalServerError,
+		Data:    err.Error(),
 	})
 	return err
 
