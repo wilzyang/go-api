@@ -35,6 +35,7 @@ This Project Requirement is
 
 #### [26-05-2022]
 - Update handler not found
+- Add Handlers to Delete Uploaded Files, this action also delete data from database [not tested yet]
 
 ### Dependency
 Dependency for this project,
@@ -45,8 +46,8 @@ Dependency for this project,
 - File Storage  : Google Cloud Storage
 
 ### Reference
-- Google Cloud OAuth Authentication: https://cloud.google.com/storage/docs/authentication
-- Google Cloud Storage API: https://cloud.google.com/storage/docs/reference/libraries
+- Google Cloud Libraries: https://cloud.google.com/storage/docs/reference/libraries
+- Google Cloud Storage API: https://cloud.google.com/storage/docs
 - Gorm (database): https://gorm.io/docs
 - Gin Web Framwork: https://github.com/gin-gonic/gin
 - Viper Config: https://github.com/spf13/viper

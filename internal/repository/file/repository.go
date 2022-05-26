@@ -25,3 +25,8 @@ func (r *FileRepository) DoInsertData(title string, data file.FileList) (err err
 	err = InsertData(ctx, data, r.DB)
 	return
 }
+
+func (r *FileRepository) DoGetFile(table string, condition map[string]interface{}) (data file.FileList, err error) {
+	res, err := GetData(ctx, table, condition, r.DB)
+	return mapFileListToDomain(res), nil
+}

@@ -11,6 +11,7 @@ import (
 
 const (
 	MainPath = "/files"
+	FilePath = "/files/:fileid"
 )
 
 type Routes struct {
@@ -61,23 +62,23 @@ func (r Routes) DoUpload(c *gin.Context) {
 	}
 }
 
-//use later for delete
-// func (r Routes) DoDelete(c *gin.Context) {
+func (r Routes) DoDelete(c *gin.Context) {
 
-// 	adapter := NewAdapter(r.fileIP)
+	adapter := NewAdapter(r.fileIP)
 
-// 	filekey := c.Query("fileid")
+	id := c.Param("fileid")
 
-// 	_, err := adapter.doDelete(context.Background(), filekey)
+	data, err := adapter.doDelete(context.Background(), id)
 
-// 	if err != nil {
-// 		app.RespondError(c, app.Error{
-// 			Code: app.Internal,
-// 		})
-// 	}
+	if err != nil {
+		app.RespondError(c, err)
+	} else {
+		app.RespondSuccess(c, app.Response{
+			IsError: false,
+			Code:    http.StatusOK,
+			Message: "Delete Success",
+			Data:    data,
+		})
+	}
 
-// 	app.RespondSuccess(c, app.Response{
-// 		Message: "Delete Success",
-// 	})
-
-// }
+}

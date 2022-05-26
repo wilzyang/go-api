@@ -60,3 +60,22 @@ func (u UseCase) DoUpload(ctx context.Context, form multipart.File, filename str
 
 	return result, nil
 }
+
+func (u UseCase) DoDelete(ctx context.Context, fileid string) (result Result, err error) {
+	d, err := u.fileRepo.DoGetFile("file_lists", map[string]interface{}{"id": fileid})
+	if err != nil {
+		e := fmt.Sprintf("[Domain] Get data : %v", err)
+		return result, errors.New(e)
+	}
+
+	err = u.fileApi.DeleteFile(context.Background(), d.Filename)
+	if err != nil {
+		e := fmt.Sprintf("[Domain] Get File Google Cloud Store : %v", err)
+		return result, errors.New(e)
+	}
+
+	result.IsError = false
+	result.Data = fmt.Sprintf("Success delete file %s", d.Filename)
+
+	return result, nil
+}

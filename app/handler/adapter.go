@@ -21,7 +21,6 @@ func (a Adapter) doUpload(ctx context.Context, form multipart.File, filename str
 	return a.fileIP.DoUpload(ctx, form, filename)
 }
 
-//used later for delete
-// func (a Adapter) doDelete(ctx context.Context, filename string) (result file.Result, err error) {
-// 	return a.fileIP.Delete(ctx, filename)
-// }
+func (a Adapter) doDelete(ctx context.Context, filename string) (result file.Result, err error) {
+	return a.fileIP.DoDelete(ctx, filename)
+}
