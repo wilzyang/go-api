@@ -33,6 +33,9 @@ This Project Requirement is
 - Handling file name to url encode before insert to database
 - Pass error message to response
 
+#### [26-05-2022]
+- Update handler not found
+
 ### Dependency
 Dependency for this project,
 - Web Framework : Gin

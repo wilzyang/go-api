@@ -43,7 +43,7 @@ func (u GcpClient) UploadFile(ctx context.Context, f multipart.File, filename st
 	// generation-match precondition using the live object's generation number.
 	// attrs, err := o.Attrs(ctx)
 	// if err != nil {
-	//      return fmt.Errorf("object.Attrs: %v", err)
+	// 	return fmt.Errorf("object.Attrs: %v", err)
 	// }
 	// o = o.If(storage.Conditions{GenerationMatch: attrs.Generation})
 
